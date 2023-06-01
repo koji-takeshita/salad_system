@@ -21,11 +21,9 @@ public enum MessageConst {
     E_NOPASSWORD("パスワードを入力してください。"),
     E_NOUSER_ID("ユーザーIDを入力してください。"),
     E_USER_ID_EXIST("入力されたユーザーIDの情報は既に存在しています。"),
-    E_NOBOOK_ID("書籍IDを数字で入力してください。"),
-    E_BOOK_ID_EXIST("入力された書籍IDの情報は既に存在しています。"),
-    E_BOOK_EXIST("入力された書籍名・ジャンル名・シリーズ番号の組は既に存在しています。"),
-    E_SEREIES_NO("シリーズ番号を数字で入力してください。"),
-    E_NOBOOK_NAME("書籍名を入力してください。");
+    E_NO_SYS_NAME("システム名を入力してください。"),
+    E_NO_SYS_NO("システムNOを入力してください。"),
+    E_SYS_NO_EXIST("入力されたシステムNOの情報は既に存在しています。");
 
 
 

@@ -7,10 +7,49 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import constants.JpaConst;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
-@Table(name = "systems")
+@NamedQueries({
+    @NamedQuery(
+            name = JpaConst.Q_SYS_GET_ALL,
+            query = JpaConst.Q_SYS_GET_ALL_DEF
+        ),
+    @NamedQuery(
+            name = JpaConst.Q_SYS_GET_ALL_COUNT,
+            query = JpaConst.Q_SYS_GET_ALL_COUNT_DEF
+        ),
+    @NamedQuery(
+            name = JpaConst.Q_SYS_GET_BY_SYS_NO,
+            query = JpaConst.Q_SYS_GET_BY_SYS_NO_DEF
+        ),
+    @NamedQuery(
+            name = JpaConst.Q_SYS_GET_BY_SYS_NO_COUNT,
+            query = JpaConst.Q_SYS_GET_BY_SYS_NO_COUNT_DEF
+        ),
+    @NamedQuery(
+            name = JpaConst.Q_SYS_GET_BY_SYS_LVL,
+            query = JpaConst.Q_SYS_GET_BY_SYS_LVL_DEF
+        ),
+    @NamedQuery(
+            name = JpaConst.Q_SYS_GET_BY_SYS_LVL_COUNT,
+            query = JpaConst.Q_SYS_GET_BY_SYS_LVL_COUNT_DEF
+        )
+
+})
+@Table(name = JpaConst.TABLE_SYS)
+@Getter //全てのクラスフィールドについてgetterを自動生成する(Lombok)
+@Setter //全てのクラスフィールドについてsetterを自動生成する(Lombok)
+@NoArgsConstructor //引数なしコンストラクタを自動生成する(Lombok)
+@AllArgsConstructor //全てのクラスフィールドを引数にもつ引数ありコンストラクタを自動生成する(Lombok)
 public class System {
     @Id
     @Column(name = "id")
@@ -40,76 +79,4 @@ public class System {
 
     @Column(name = "del_flg", nullable = false)
     private Integer delFlg;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getSysNo() {
-        return sysNo;
-    }
-
-    public void setSysNo(Integer sysNo) {
-        this.sysNo = sysNo;
-    }
-
-    public String getSysName() {
-        return sysName;
-    }
-
-    public void setSysName(String sysName) {
-        this.sysName = sysName;
-    }
-
-    public Integer getSysLevel() {
-        return sysLevel;
-    }
-
-    public void setSysLevel(Integer sysLevel) {
-        this.sysLevel = sysLevel;
-    }
-
-    public String getInpUserId() {
-        return inpUserId;
-    }
-
-    public void setInpUserId(String inpUserId) {
-        this.inpUserId = inpUserId;
-    }
-
-    public LocalDateTime getInpDate() {
-        return inpDate;
-    }
-
-    public void setInpDate(LocalDateTime inpDate) {
-        this.inpDate = inpDate;
-    }
-
-    public String getUpdUserId() {
-        return updUserId;
-    }
-
-    public void setUpdUserId(String updUserId) {
-        this.updUserId = updUserId;
-    }
-
-    public LocalDateTime getUpdDate() {
-        return updDate;
-    }
-
-    public void setUpdDate(LocalDateTime updDate) {
-        this.updDate = updDate;
-    }
-
-    public Integer getDelFlg() {
-        return delFlg;
-    }
-
-    public void setDelFlg(Integer delFlg) {
-        this.delFlg = delFlg;
-    }
 }

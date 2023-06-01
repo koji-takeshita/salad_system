@@ -49,8 +49,8 @@ public enum AttributeConst {
     SYSTEM("system"),
     SYSTEMS("systems"),
     SYSTEMS_COUNT("systems_count"),
-    SYSTEM_NO("book_no"),
-    SYSTEM_NAME("book_id"),
+    SYS_NO("sysNo"),
+    SYS_NAME("sysName"),
     SYS_LEVEL("system_level"),
     MENU_LEVEL("menu_level"),
 

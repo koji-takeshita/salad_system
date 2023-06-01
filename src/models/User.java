@@ -11,38 +11,58 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import constants.JpaConst;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 @Entity
 @NamedQueries({
     @NamedQuery(
-            name = "getAllUsers",
-            query = "SELECT u "
-                  + "FROM User AS u "
-                  + "WHERE u.delFlg = 0 "
-                  + "ORDER BY u.id DESC"
+            name = JpaConst.Q_USER_GET_ALL,
+            query = JpaConst.Q_USER_GET_ALL_DEF
         ),
     @NamedQuery(
-            name = "getUserByUserId",
-            query = "SELECT u "
-                  + "FROM User AS u "
-                  + "WHERE u.delFlg = 0 "
-                  + "AND u.userId = :"
-                  + "userId "
-                  + "ORDER BY u.id DESC"
+            name = JpaConst.Q_USER_GET_ALL_COUNT,
+            query = JpaConst.Q_USER_GET_ALL_COUNT_DEF
         ),
     @NamedQuery(
-            name = "getUserByUserIdAndPass",
-            query = "SELECT u "
-                  + "FROM User AS u "
-                  + "WHERE u.delFlg = 0 "
-                  + "AND u.userId = :"
-                  + "userId "
-                  + "AND u.password = :"
-                  + "password "
+            name = JpaConst.Q_USER_GET_BY_SYS_LVL,
+            query = JpaConst.Q_USER_GET_BY_SYS_LVL_DEF
+        ),
+    @NamedQuery(
+            name = JpaConst.Q_USER_GET_BY_SYS_LVL_COUNT,
+            query = JpaConst.Q_USER_GET_BY_SYS_LVL_COUNT_DEF
+        ),
+    @NamedQuery(
+            name = JpaConst.Q_USER_GET_BY_MENU_LVL,
+            query = JpaConst.Q_USER_GET_BY_MENU_LVL_DEF
+        ),
+    @NamedQuery(
+            name = JpaConst.Q_USER_GET_BY_MENU_LVL_COUNT,
+            query = JpaConst.Q_USER_GET_BY_MENU_LVL_COUNT_DEF
+        ),
+    @NamedQuery(
+            name = JpaConst.Q_USER_GET_BY_USER_ID,
+            query = JpaConst.Q_USER_GET_BY_USER_ID_DEF
+        ),
+    @NamedQuery(
+            name = JpaConst.Q_USER_GET_BY_USER_ID_COUNT,
+            query = JpaConst.Q_USER_GET_BY_USER_ID_COUNT_DEF
+        ),
+    @NamedQuery(
+            name = JpaConst.Q_USER_GET_BY_USER_ID_AND_PASS,
+            query = JpaConst.Q_USER_GET_BY_USER_ID_AND_PASS_DEF
         )
 
 })
-@Table(name = "users")
+@Table(name = JpaConst.TABLE_USER)
+@Getter //全てのクラスフィールドについてgetterを自動生成する(Lombok)
+@Setter //全てのクラスフィールドについてsetterを自動生成する(Lombok)
+@NoArgsConstructor //引数なしコンストラクタを自動生成する(Lombok)
+@AllArgsConstructor //全てのクラスフィールドを引数にもつ引数ありコンストラクタを自動生成する(Lombok)
 public class User {
 
     /**
@@ -112,93 +132,5 @@ public class User {
      */
     @Column(name = "del_flg", nullable = false)
     private Integer delFlg;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Integer getSysLevel() {
-        return sysLevel;
-    }
-
-    public void setSysLevel(Integer sysLevel) {
-        this.sysLevel = sysLevel;
-    }
-
-    public Integer getMenuLevel() {
-        return menuLevel;
-    }
-
-    public void setMenuLevel(Integer menuLevel) {
-        this.menuLevel = menuLevel;
-    }
-
-    public String getInpUserId() {
-        return inpUserId;
-    }
-
-    public void setInpUserId(String inpUserId) {
-        this.inpUserId = inpUserId;
-    }
-
-    public LocalDateTime getInpDate() {
-        return inpDate;
-    }
-
-    public void setInpDate(LocalDateTime inpDate) {
-        this.inpDate = inpDate;
-    }
-
-    public String getUpdUserId() {
-        return updUserId;
-    }
-
-    public void setUpdUserId(String updUserId) {
-        this.updUserId = updUserId;
-    }
-
-    public LocalDateTime getUpdDate() {
-        return updDate;
-    }
-
-    public void setUpdDate(LocalDateTime updDate) {
-        this.updDate = updDate;
-    }
-
-    public Integer getDelFlg() {
-        return delFlg;
-    }
-
-    public void setDelFlg(Integer delFlg) {
-        this.delFlg = delFlg;
-    }
 
 }

@@ -12,14 +12,17 @@ public enum ForwardConst {
     ACT_USER("User"),
     ACT_SYSTEM("System"),
     ACT_SET("Set"),
+    ACT_AUTH("Auth"),
+    ACT_RSV("Reserve"),
 
     //command
     CMD("command"),
     CMD_NONE(""),
     CMD_INDEX("index"),
+    CMD_TOP("top"),
     CMD_SEARCH("search"),
     CMD_SHOW("show"),
-    CMD_YYK("yoyaku"),
+    CMD_RSV("reserve"),
     CMD_SHOW_LOGIN("showLogin"),
     CMD_LOGIN("login"),
     CMD_LOGOUT("logout"),
@@ -38,11 +41,14 @@ public enum ForwardConst {
     FW_USER_NEW("users/new"),
     FW_USER_EDIT("users/edit"),
     FW_USER_SEARCH("users/search"),
-    FW_BOOK_INDEX("books/index"),
-    FW_BOOK_SHOW("books/show"),
-    FW_BOOK_YYK("books/yoyaku"),
-    FW_BOOK_NEW("books/new"),
-    FW_BOOK_EDIT("books/edit");
+    FW_SYS_INDEX("systems/index"),
+    FW_SYS_SHOW("systems/show"),
+    FW_SYS_NEW("systems/new"),
+    FW_SYS_EDIT("systems/edit"),
+    FW_RSV_INDEX("reserves/index"),
+    FW_RSV_SHOW("reserves/show"),
+    FW_RSV_NEW("reserves/new"),
+    FW_RSV_EDIT("reserves/edit");
 
     /**
      * 文字列
